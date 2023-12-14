@@ -1,5 +1,12 @@
 import { process } from '/env';
+import { Configuration, OPENAIApi } from 'openai';
 
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY
+})
+
+const openai = openAIApi(configuration)
 
 const setupTextarea = document.getElementById('setup-textarea') ;
 const setupInputContainer = document.getElementById('setup-input-container');
@@ -12,9 +19,6 @@ document.getElementById("send-btn").addEventListener("click", () => {
   // }
   fetchBotReply();
 });
-
-const url = "https://api.openai.com/v1/completions"
-const apiKey = process.env.OPENAI_API_KEY
 
 function fetchBotReply() {
   fetch(url, {
