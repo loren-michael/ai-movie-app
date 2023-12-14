@@ -1,4 +1,5 @@
 import { process } from '/env';
+import openai from 'openai';
 import { Configuration, OPENAIApi } from 'openai';
 
 
@@ -22,8 +23,8 @@ document.getElementById("send-btn").addEventListener("click", () => {
 
 async function fetchBotReply() {
   const response = await openai.createCompletion({
-    'model': 'text-davinci-003',
-    'prompt': 'Sound enthusiastic in five words or less'
+    model: 'text-davinci-003',
+    prompt: 'Sound enthusiastic in five words or less'
   });
   movieBossText.innerText = response.data.choices[0].text.trim();
 }
