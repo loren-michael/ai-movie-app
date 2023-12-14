@@ -6,7 +6,7 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY
 })
 
-const openai = openAIApi(configuration)
+const openai = OPENAIApi(configuration)
 
 const setupTextarea = document.getElementById('setup-textarea') ;
 const setupInputContainer = document.getElementById('setup-input-container');
