@@ -1,14 +1,9 @@
 import { process } from '/env';
-import OpenAI, { Configuration } from './node_modules/openai';
-// import { Configuration, OPENAIApi } from 'openai';
+import OpenAI from 'openai';
 
-
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
-})
-
-// const openai = OPENAIApi(configuration)
-const openai = new OpenAI();
+});
 
 const setupTextarea = document.getElementById('setup-textarea') ;
 const setupInputContainer = document.getElementById('setup-input-container');
