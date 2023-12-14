@@ -1,13 +1,14 @@
 import { process } from '/env';
-// import openai from 'openai';
-import { Configuration, OPENAIApi } from 'openai';
+import OpenAI from 'openai';
+// import { Configuration, OPENAIApi } from 'openai';
 
 
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY
 })
 
-const openai = OPENAIApi(configuration)
+// const openai = OPENAIApi(configuration)
+const openai = new OpenAI();
 
 const setupTextarea = document.getElementById('setup-textarea') ;
 const setupInputContainer = document.getElementById('setup-input-container');
@@ -23,7 +24,7 @@ document.getElementById("send-btn").addEventListener("click", () => {
 });
 
 async function fetchBotReply(outline) {
-  const response = await openai.createCompletion({
+  const response = await openai.chat.completions.create({
     model: 'text-davinci-003',
     prompt: `Generate a short message to say "${outline}" sounds interesting and that you need some minutes to think about it. Mention one aspect of the sentence.`,
     max_tokens: 60
